@@ -33,7 +33,45 @@ Principal::Principal(QWidget *parent)
     mNumLineas =0;
     ui->actionLibre->setChecked(true);
 
+    //Conexiones para seleccioar una sola forma (check)
+    connect(ui->actionLineas, SIGNAL(triggered(bool)),
+                this, SLOT(resetear1()));
+    connect(ui->actionLibre, SIGNAL(triggered(bool)),
+                this, SLOT(resetar2()));
+    connect(ui->actionRectangulos, SIGNAL(triggered(bool)),
+                this, SLOT(resetear3()));
+    connect(ui->actionCirculos, SIGNAL(triggered(bool)),
+                this, SLOT(resetear4()));
 
+
+}
+
+void Principal::resetear1()
+{
+    ui->actionLibre->setChecked(false);
+    ui->actionRectangulos->setChecked(false);
+    ui->actionCirculos->setChecked(false);
+}
+
+void Principal::resetar2()
+{
+    ui->actionLineas->setChecked(false);
+    ui->actionRectangulos->setChecked(false);
+    ui->actionCirculos->setChecked(false);
+}
+
+void Principal::resetear3()
+{
+    ui->actionLibre->setChecked(false);
+    ui->actionLineas->setChecked(false);
+    ui->actionCirculos->setChecked(false);
+}
+
+void Principal::resetear4()
+{
+    ui->actionLibre->setChecked(false);
+    ui->actionRectangulos->setChecked(false);
+    ui->actionLineas->setChecked(false);
 }
 
 Principal::~Principal()
@@ -107,9 +145,7 @@ void Principal::mouseReleaseEvent(QMouseEvent *event)
         mPainter->drawLine(mInicial,mFinal);
         mInicial=mFinal;
         event->accept();
-        ui->actionLibre->setChecked(false);
-        ui->actionRectangulos->setChecked(false);
-        ui->actionCirculos->setChecked(false);
+
         update();
     }else if(ui->actionRectangulos->isChecked()){
         //Capturar el punto donde se suelta el mouse
@@ -127,9 +163,9 @@ void Principal::mouseReleaseEvent(QMouseEvent *event)
         //Aceptar el eveneto
         event->accept();
         //Actualizar la interfaz
-        ui->actionLibre->setChecked(false);
-        ui->actionLineas->setChecked(false);
-        ui->actionCirculos->setChecked(false);
+        //ui->actionLibre->setChecked(false);
+        //ui->actionLineas->setChecked(false);
+        //ui->actionCirculos->setChecked(false);
         update();
         //Actualiza el punto inicial
         mInicial=mFinal;
@@ -200,5 +236,7 @@ void Principal::on_actionGuardar_triggered()
                                  "No se puedo alamecenar la imagen.");
     }
 }
+
+
 
 
