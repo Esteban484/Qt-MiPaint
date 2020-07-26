@@ -13,6 +13,7 @@ class Principal : public QMainWindow
 
 public:
     Principal(QWidget *parent = nullptr);
+
     ~Principal();
 
 
@@ -32,6 +33,10 @@ private slots:
     void on_actionNuevo_triggered();
 
     void on_actionGuardar_triggered();
+    void resetear1();
+    void resetar2();
+    void resetear3();
+    void resetear4();
 
 
 
