@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Resources/arte.png</file>
+        <file>Resources/cepillo.png</file>
+        <file>Resources/salida.png</file>
+        <file>Resources/Save.ico</file>
+        <file>Resources/pintar.png</file>
+        <file>Resources/ancho_linea.png</file>
+    </qresource>
+</RCC>
